@@ -1,0 +1,93 @@
+launched players/carli.filler
+$$$ exec p1 : [players/carli.filler]
+launched players/tlutsyk.filler
+$$$ exec p2 : [players/tlutsyk.filler]
+Plateau 15 40:
+    0123456789012345678901234567890123456789
+000 ........................................
+001 ........................................
+002 ........................................
+003 ...O....................................
+004 ........................................
+005 ........................................
+006 ........................................
+007 ........................................
+008 ........................................
+009 ........................................
+010 ........................................
+011 ........................................
+012 ........................................
+013 ...................................X....
+014 ........................................
+Piece 3 7:
+.......
+***....
+.**....
+<got (O): [2, 3]
+Plateau 24 40:
+
+
+MAP01-02 I UP
+		if (bord->x_costil == 0)
+			x_costil_left(bord);
+		if (bord->x_costil == 1)
+		{
+			bx = (ft_middle_en_x(bord) - bord->res_star[bord->nb_st * 2 - 1]);
+			by = (ft_middle_en_y(bord) - bord->res_star[bord->nb_st * 2 - 2]);
+
+		}
+		y_costil_down(bord);
+		if ((bord->x_costil == 0) && (bord->y_costil == 1))
+		{
+			bx = (0 - bord->res_star[1]);
+			by = ((bord->y_bord_size / 4) - bord->res_star[0]);
+		}
+		if ((bord->x_costil == 0) && bord->y_costil == 0)
+		{
+			bx = ((bord->x_bord_size) - bord->res_star[1]);
+			by = (0 - bord->res_star[0]);
+		}
+		bx = bx < 0 ? bx * (-1) : bx * 1;
+		by = by < 0 ? by * (-1) : by * 1;
+		b = by + bx;
+		if (b < bord->best_len)
+		{
+			bord->res_coordinates[0] = bord->res_token[0];
+			bord->res_coordinates[1] = bord->res_token[1];
+			bord->best_len = b;
+		}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	// if (bord->a == 'd')
+	// {
+	// 	if (bord->x_costil_my_right == 0)
+	// 		x_costil_right(bord);
+	// 	if (bord->x_costil_my_right == 0)
+	// 	{
+	// 		bx = ((bord->x_bord_size - 1) - bord->res_star[bord->nb_st * 2 - 1]);
+	// 		by = (bord->my_cord[0] - bord->res_star[bord->nb_st * 2 - 2]);
+	// 	}
+	// 	if (bord->x_costil == 0)
+	// 		x_costil_left(bord);
+	// 	if (bord->x_costil_my_right == 1 && bord->x_costil == 0)
+	// 	{
+	// 		bx = (0 - bord->res_star[bord->nb_st * 2 - 1]);
+	// 		by = (0 - bord->res_star[bord->nb_st * 2 - 2]);
+	// 	}
+	// 	if (bord->x_costil_my_right == 1 && bord->x_costil == 1)
+	// 	{
+	// 		bx = (0 - bord->res_star[1]);
+	// 		by = ((bord->y_bord_size) - bord->res_star[0]);	
+	// 	}
+
+	// 	bx = bx < 0 ? bx * (-1) : bx * 1;
+	// 	by = by < 0 ? by * (-1) : by * 1;
+	// 	b = by + bx;
+	// 	if (b < bord->best_len)
+	// 	{
+	// 		bord->res_coordinates[0] = bord->res_token[0];
+	// 		bord->res_coordinates[1] = bord->res_token[1];
+	// 		bord->best_len = b;
+	// 	}
+	// }
